@@ -3,13 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:progress/features/HomePage/Screens/home_page.dart';
 import '../../CommonElements/common_button.dart';
-import '../Controller/employee_datacontroller.dart';
+
 
 class LoginPage extends ConsumerWidget {
   const LoginPage({super.key});
 
   @override
-  Widget build(BuildContext context , WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
     final TextEditingController phoneNumnberController =
         TextEditingController();
@@ -53,7 +53,6 @@ class LoginPage extends ConsumerWidget {
           elevatedButton("Login In", () {
             phoneNumnberController.clear();
             passwordController.clear();
-            ref.read(employeeDataControllerProvider).employeeDataController();
 
             Navigator.push(
               context,

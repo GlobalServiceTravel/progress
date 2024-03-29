@@ -8,25 +8,41 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Future<List<EmployeeModel>> showData() async {
-      final dataProvider = ref.watch(employeeDataControllerProvider);
-      final dataExtraction = dataProvider.employeeDataController();
-      final data = await dataExtraction.then((value) {
-        return dataExtraction;
-      });
+    Future<EmployeeModelState> getData() async {
+      final stateData = await ref
+          .watch(employeeDataControllerProvider.notifier)
+          .employeeGetter();
 
-      print(data);
-
-      return data;
+          print(stateData);
+      return stateData;
     }
 
     return Scaffold(
       body: Center(
-        child: ElevatedButton(
-            onPressed: () {
-              showData();
-            },
-            child: const Text("press me ")),
+
+     child: ElevatedButton(onPressed: (){
+      getData();
+     }, child: const  Text("press me ")),
+
+
+
+        // child: FutureBuilder(
+        //   future: getData(),
+        //   builder: ((context, snapshot) {
+        //     return const CircularProgressIndicator();
+        //    if(snapshot.hasData){
+
+        //     return    Column(
+        //       children: [
+        //         Text(snapshot.data.toString(),),
+        //       ],
+        //     );
+        //    } else {
+        //     return const CircularProgressIndicator();
+        //    }
+        //   }
+        //   ),
+        // ),
       ),
     );
   }
