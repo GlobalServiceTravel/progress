@@ -16,15 +16,17 @@ class EmployeeDataController extends StateNotifier<EmployeeModelState> {
   EmployeeDataController(
     super.state,
     this.repository,
-  );
+  ) {
+    employeeDataController();
+  }
 
-  Future<EmployeeModelState> employeeDataController() async {
+  Future<void> employeeDataController() async {
     state = state.copyWith(
       isLoading: true,
     );
 
     final response = await repository.fetchEmployeeData();
-    print("this function is called ");
+
     state = await response.fold(
       (error) => state.copyWith(
         errorMessage: error,
@@ -37,14 +39,11 @@ class EmployeeDataController extends StateNotifier<EmployeeModelState> {
         isLoading: false,
       ),
     );
-
-    
-    return state;
   }
 
-  Future<EmployeeModelState> employeeGetter() async  {
-   await employeeDataController();
-    print(state.employeeList);
-    return  state;
+  Future<EmployeeModelState> employeeGetter() async {
+    await employeeDataController();
+
+    return state;
   }
 }
