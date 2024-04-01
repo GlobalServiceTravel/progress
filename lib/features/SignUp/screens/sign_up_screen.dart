@@ -8,11 +8,8 @@ import '../Controller/register_controller.dart';
 class SignUpPage extends ConsumerWidget {
   const SignUpPage({super.key});
 
-  
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-      
     final size = MediaQuery.of(context).size;
     final TextEditingController fullNameController = TextEditingController();
     final TextEditingController dateOfBirthController = TextEditingController();
@@ -24,9 +21,6 @@ class SignUpPage extends ConsumerWidget {
     final TextEditingController shortIntroController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
 
-final registerProvider = ref.watch(registerControllerProvider);
-
-  
     return SafeArea(
         child: Scaffold(
       backgroundColor: const Color.fromARGB(255, 12, 6, 0),
@@ -42,9 +36,7 @@ final registerProvider = ref.watch(registerControllerProvider);
               "assets/ghfmun_logo.png",
               height: size.height * 0.1,
             ),
-            const SizedBox(
-              height: 50,
-            ),
+            const SizedBox(height: 50),
             Text(
               ' Sign Up',
               style: GoogleFonts.aladin(
@@ -55,9 +47,7 @@ final registerProvider = ref.watch(registerControllerProvider);
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             textField("Full Name", fullNameController),
             textField("Date of Birth", dateOfBirthController),
             textField("Gender", genderController),
@@ -68,26 +58,33 @@ final registerProvider = ref.watch(registerControllerProvider);
             textField("password", passwordController),
             const SizedBox(height: 10),
             elevatedButton("Sign Up", () async {
-              if (registerProvider.statusCode == 201) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('This is a SnackBar'),
-                  ),
-                );
+               ref.read(
+                registerControllerProvider(
+                  [
+                    fullNameController.text,
+                    dateOfBirthController.text,
+                    genderController.text,
+                    phoneNumnberController.text,
+                    emailController.text,
+                    departmentController.text,
+                    shortIntroController.text,
+                    passwordController.text,
+                  ],
+                ),
+              );
 
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(),
-                  ),
-                );
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(registerProvider.errorMessage),
-                  ),
-                );
-              }
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Account is Created successfully.'),
+                ),
+              );
+
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => const HomePage(),
+              //   ),
+              // );
 
               fullNameController.clear();
               dateOfBirthController.clear();

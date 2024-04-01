@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:progress/features/HomePage/Screens/home_page.dart';
 import '../../CommonElements/common_button.dart';
 
-
 class LoginPage extends ConsumerWidget {
   const LoginPage({super.key});
 
@@ -21,17 +20,12 @@ class LoginPage extends ConsumerWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(
-            height: 20,
-            width: double.infinity,
-          ),
+          const SizedBox(height: 20, width: double.infinity),
           Image.asset(
             "assets/ghfmun_logo.png",
             height: size.height * 0.25,
           ),
-          const SizedBox(
-            height: 50,
-          ),
+          const SizedBox(height: 50),
           Text(
             ' Login',
             style: GoogleFonts.aladin(
@@ -47,17 +41,17 @@ class LoginPage extends ConsumerWidget {
           ),
           textField("Enter Phone Number", phoneNumnberController),
           textField("Enter Password", passwordController),
-          const SizedBox(
-            height: 10,
-          ),
+          const SizedBox(height: 10),
           elevatedButton("Login In", () {
-            phoneNumnberController.clear();
-            passwordController.clear();
 
+            
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const HomePage(),
+                builder: (context) => HomePage(
+                  password: passwordController.value.text.toString(),
+                  phoneNumber: phoneNumnberController.value.text.toString(),
+                ),
               ),
             );
           }),

@@ -40,7 +40,6 @@ class SignUpRepository {
         }else{
           throw "error Occured";
         }
-
     } catch (e) {
       return left(e.toString());
     }

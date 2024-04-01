@@ -8,13 +8,22 @@ final employeeDataRepository = Provider((ref) => FetchEmployeeDataRepository());
 class FetchEmployeeDataRepository {
   final dio = Dio();
 
-  Future<Either<String, List<EmployeeModel>>> fetchEmployeeData() async {
+  Future<Either<String, List<EmployeeModel>>> fetchEmployeeData({
+    required String phoneNumber,
+    required String password,
+  }) async {
     try {
       final response = await dio.get(
         'http://ghfmun.org/getEmployeeData',
-        options: Options(headers: {
-          'authorization': 'Bearer 9866570482',
-        }),
+        options: Options(
+          headers: {
+            'authorization': 'Bearer 9866570482',
+          },
+        ),
+        queryParameters: {
+          'phoneNumber': phoneNumber,
+          'password': password,
+        },
       );
 
       if (response.statusCode == 200) {

@@ -1,20 +1,34 @@
+// ignore_for_file: non_constant_identifier_names
+
 class EmployeeModel {
   final String employeeName;
+  final String date_of_birth;
+  final String gender;
   final String employeeEmail;
   final String phoneNumber;
-
-  EmployeeModel({
-    required this.employeeEmail,
-    required this.employeeName,
-    required this.phoneNumber,
-  });
+  final String department;
+  final String short_intro;
+  final String password;
+  EmployeeModel(
+      {required this.employeeEmail,
+      required this.employeeName,
+      required this.phoneNumber,
+      required this.date_of_birth,
+      required this.department,
+      required this.gender,
+      required this.password,
+      required this.short_intro});
 
   factory EmployeeModel.fromMap(Map<String, dynamic> map) {
     return EmployeeModel(
-      employeeName: map['employeeName'],
-      employeeEmail: map['employeeEmail'],
-      phoneNumber: map['phoneNumber'],
-    );
+        employeeName: map['employeeName'],
+        employeeEmail: map['employeeEmail'],
+        phoneNumber: map['phoneNumber'],
+        date_of_birth: map["date_of_birth"],
+        department: map['department'],
+        gender: map['gender'],
+        password: map['password'],
+        short_intro: map['short_intro']);
   }
 
   Map<String, dynamic> toMap() {
@@ -22,12 +36,17 @@ class EmployeeModel {
       'employeeName': employeeName,
       'employeeEmail': employeeEmail,
       'phoneNumber': phoneNumber,
+      'date_of_birth': date_of_birth,
+      'department': department,
+      'gender': gender,
+      'password': password,
+      'short_intro': short_intro
     };
   }
 
   @override
   String toString() {
-    return 'EmployeeModel{employeeName: $employeeName, employeeEmail: $employeeEmail, phoneNumber: $phoneNumber}';
+    return 'EmployeeModel{employeeName: $employeeName, employeeEmail: $employeeEmail, phoneNumber: $phoneNumber , date_of_birth: $date_of_birth, department: $department, gender: $gender, password: $password, short_intro: $short_intro }';
   }
 }
 
