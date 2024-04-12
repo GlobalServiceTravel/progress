@@ -1,30 +1,31 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/register_data_model.dart';
 import '../repository/sign_up_repository.dart';
 
 final registerControllerProvider = StateNotifierProvider.family<
-    RegisterConroller, RegisterState, List<String>>(
+    RegisterConroller, RegisterState, Tuple8<String , String , String , String , String , String , String , String>>(
   (ref, dataList) => RegisterConroller(RegisterState.initialState(),
       ref.watch(signUpRepositoryProvider), dataList),
 );
 
 class RegisterConroller extends StateNotifier<RegisterState> {
   final SignUpRepository repository;
-  final List<String> data;
+  final Tuple8 data;
   RegisterConroller(
     super.state,
     this.repository,
     this.data,
   ) {
     registerController(
-      fullName: data[0],
-      dateOfBirth: data[1],
-      gender: data[2],
-      phoneNumber: data[3],
-      email: data[4],
-      department: data[5],
-      shortIntro: data[6],
-      password: data[7],
+      fullName: data.value1,
+      dateOfBirth: data.value2,
+      gender: data.value3,
+      phoneNumber: data.value4,
+      email: data.value5,
+      department: data.value6,
+      shortIntro: data.value7,
+      password: data.value8,
     );
   }
 

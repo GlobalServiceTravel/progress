@@ -1,7 +1,8 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:progress/features/HomePage/Screens/home_page.dart';
+import 'package:progress/features/working_with_node/LoginPage/Screens/login_page.dart';
 import '../../CommonElements/common_button.dart';
 import '../Controller/register_controller.dart';
 
@@ -56,35 +57,46 @@ class SignUpPage extends ConsumerWidget {
             textField("Department", departmentController),
             textField("Short Introduction", shortIntroController),
             textField("password", passwordController),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginPage(),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        "Already have an Account",
+                        style: TextStyle(color: Colors.white),
+                      )),
+                ),
+              ],
+            ),
             const SizedBox(height: 10),
             elevatedButton("Sign Up", () async {
-               ref.read(
-                registerControllerProvider(
-                  [
-                    fullNameController.text,
-                    dateOfBirthController.text,
-                    genderController.text,
-                    phoneNumnberController.text,
-                    emailController.text,
-                    departmentController.text,
-                    shortIntroController.text,
-                    passwordController.text,
-                  ],
-                ),
+              final dataProvider = ref.read(
+                registerControllerProvider(Tuple8(
+                  fullNameController.text,
+                  dateOfBirthController.text,
+                  genderController.text,
+                  phoneNumnberController.text,
+                  emailController.text,
+                  departmentController.text,
+                  shortIntroController.text,
+                  passwordController.text,
+                )),
               );
 
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Account is Created successfully.'),
-                ),
-              );
+               if(dataProvider.isSuccess  ) {
+                
+               }   
 
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => const HomePage(),
-              //   ),
-              // );
 
               fullNameController.clear();
               dateOfBirthController.clear();

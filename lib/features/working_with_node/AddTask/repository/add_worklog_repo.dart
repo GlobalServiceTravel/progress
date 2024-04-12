@@ -4,9 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
 
-final signUpRepositoryProvider = Provider((ref) => SignUpRepository());
+final signUpRepositoryProvider = Provider((ref) => AddWorkLogRepo());
 
-class SignUpRepository {
+class AddWorkLogRepo {
   static final dio = Dio(BaseOptions(
     baseUrl: "https://ghfmun.org",
     headers: {
@@ -29,8 +29,8 @@ class SignUpRepository {
         "employeeName": fullName,
         "date_of_birth": dateOfBirth,
         "gender": gender,
-        "employeeEmail": phoneNumber,
-        "phoneNumber": email,
+        "employeeEmail": email,
+        "phoneNumber": phoneNumber,
         "department": department,
         "short_intro": shortIntro,
         "password": password

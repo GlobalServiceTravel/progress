@@ -14,7 +14,7 @@ class FetchEmployeeDataRepository {
   }) async {
     try {
       final response = await dio.get(
-        'http://ghfmun.org/getEmployeeData',
+        'http://ghfmun.org/EmployeeLogin',
         options: Options(
           headers: {
             'authorization': 'Bearer 9866570482',
@@ -27,7 +27,7 @@ class FetchEmployeeDataRepository {
       );
 
       if (response.statusCode == 200) {
-        final jsonData = response.data['data'] as List<dynamic>;
+        final jsonData = await response.data['data'] as List<dynamic>;
         final employeeList =
             jsonData.map((data) => EmployeeModel.fromMap(data)).toList();
         return right(employeeList);

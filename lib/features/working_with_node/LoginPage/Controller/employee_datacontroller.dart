@@ -21,22 +21,20 @@ class EmployeeDataController extends StateNotifier<EmployeeModelState> {
       phoneNumber: params.value1,
       password: params.value2,
     );
-  
   }
 
   Future<void> employeeDataController({
     required String phoneNumber,
     required String password,
   }) async {
-    state = state.copyWith(
-      isLoading: true,
-    );
+    state = state.copyWith(isLoading: true);
 
     final response = await repository.fetchEmployeeData(
       password: password,
       phoneNumber: phoneNumber,
     );
 
+ 
     state = await response.fold(
       (error) => state.copyWith(
         errorMessage: error,
@@ -50,6 +48,6 @@ class EmployeeDataController extends StateNotifier<EmployeeModelState> {
       ),
     );
 
-    
+    print(state.isSuccess);
   }
 }
