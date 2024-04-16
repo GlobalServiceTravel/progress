@@ -24,7 +24,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(
+      home:  //LoginPage(),
+      
+      HomePage(
         phoneNumber: "9800701472",
         password: "1472",
       ),
