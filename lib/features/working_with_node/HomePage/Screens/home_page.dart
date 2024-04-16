@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:progress/features/working_with_node/HomePage/Screens/components/ongoing_process_container.dart';
 import 'package:progress/features/working_with_node/HomePage/Screens/components/progress_bar.dart';
-import 'package:progress/features/working_with_node/HomePage/Screens/components/task_group_container.dart';
 import '../../LoginPage/Controller/employee_datacontroller.dart';
 
 class HomePage extends ConsumerWidget {
@@ -53,8 +52,7 @@ class HomePage extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding:
-                      const EdgeInsets.only(left: 30, right: 30, top: 30),
+                  padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
                   child: Row(
                     children: [
                       const CircleAvatar(
@@ -86,8 +84,7 @@ class HomePage extends ConsumerWidget {
                       const Spacer(),
                       IconButton(
                         onPressed: () {},
-                        icon:
-                            const Icon(Icons.notifications_active, size: 30),
+                        icon: const Icon(Icons.notifications_active, size: 30),
                       )
                     ],
                   ),
@@ -96,7 +93,7 @@ class HomePage extends ConsumerWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 20.0, right: 20),
                   child: Container(
-                    height: 150,
+                    height: 165,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
@@ -128,8 +125,9 @@ class HomePage extends ConsumerWidget {
                             Padding(
                               padding: const EdgeInsets.only(left: 25),
                               child: ElevatedButton(
-                                  onPressed: () {},
-                                  child: const Text("View Task")),
+                                onPressed: () {},
+                                child: const Text("View Task"),
+                              ),
                             )
                           ],
                         ),
@@ -226,29 +224,13 @@ class HomePage extends ConsumerWidget {
       children: [
         Expanded(
           child: Container(
-            height: size.height * 0.5,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topRight,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color.fromARGB(255, 247, 236, 236),
-                  Color.fromARGB(255, 237, 239, 241)
-                ],
-              ),
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            height: size.height * 0.5,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color.fromARGB(255, 237, 239, 241),
-                  Color.fromARGB(255, 247, 236, 236),
+                  Color.fromARGB(255, 221, 180, 180),
+                  Color.fromARGB(255, 194, 212, 230)
                 ],
               ),
             ),
