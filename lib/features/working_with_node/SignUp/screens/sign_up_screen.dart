@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:progress/features/working_with_node/LoginPage/Screens/login_page.dart';
-import '../../CommonElements/common_button.dart';
+import '../../../../CommonElements/common_button.dart';
 import '../Controller/register_controller.dart';
 
 class SignUpPage extends ConsumerWidget {

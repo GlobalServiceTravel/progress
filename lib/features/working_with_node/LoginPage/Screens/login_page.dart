@@ -28,85 +28,87 @@ class LoginPage extends ConsumerWidget {
     return SafeArea(
         child: Scaffold(
       backgroundColor: const Color.fromARGB(255, 12, 6, 0),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(height: 20, width: double.infinity),
-          Image.asset(
-            "assets/ghfmun_logo.png",
-            height: size.height * 0.25,
-          ),
-          const SizedBox(height: 50),
-          Text(
-            ' Login',
-            style: GoogleFonts.aladin(
-              textStyle: const TextStyle(
-                color: Colors.white,
-                letterSpacing: .5,
-                fontSize: 45,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(height: 20, width: double.infinity),
+            Image.asset(
+              "assets/ghfmun_logo.png",
+              height: size.height * 0.25,
+            ),
+            const SizedBox(height: 50),
+            Text(
+              ' Login',
+              style: GoogleFonts.aladin(
+                textStyle: const TextStyle(
+                  color: Colors.white,
+                  letterSpacing: .5,
+                  fontSize: 45,
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          textField("Enter Phone Number", phoneNumnberController),
-          textField("Enter Password", passwordController),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 20.0),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const SignUpPage(),
-                      ),
-                    );
-                  },
-                  child: const Text(
-                    "Create a New Account",
-                    style: TextStyle(color: Colors.white),
+            const SizedBox(
+              height: 20,
+            ),
+            textField("Enter Phone Number", phoneNumnberController),
+            textField("Enter Password", passwordController),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignUpPage(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      "Create a New Account",
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: () {
-              final loginProvider = ref.watch(
-                employeeDataControllerProvider(
-                  Tuple2(
-                    phoneNumnberController.value.text,
-                    passwordController.value.text,
-                  ),
-                ),
-              );
-              print(phoneNumnberController.value.text);
-              print(loginProvider.isSuccess);
-              if (loginProvider.isSuccess) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomePage(
-                      password: passwordController.value.text.toString(),
-                      phoneNumber: phoneNumnberController.value.text.toString(),
+              ],
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                final loginProvider = ref.watch(
+                  employeeDataControllerProvider(
+                    Tuple2(
+                      phoneNumnberController.value.text,
+                      passwordController.value.text,
                     ),
                   ),
                 );
-              }
-            },
-            child: const Text('login'),
-            // child: loginProvider.isLoading
-            //     ? const CircularProgressIndicator()
-            //     : loginProvider.isSuccess
-            //         ? const Text("Done")
-            //         : const Text("login"),
-          ),
-        ],
+                print(phoneNumnberController.value.text);
+                print(loginProvider.isSuccess);
+                if (loginProvider.isSuccess) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(
+                        password: passwordController.value.text.toString(),
+                        phoneNumber: phoneNumnberController.value.text.toString(),
+                      ),
+                    ),
+                  );
+                }
+              },
+              child: const Text('login'),
+              // child: loginProvider.isLoading
+              //     ? const CircularProgressIndicator()
+              //     : loginProvider.isSuccess
+              //         ? const Text("Done")
+              //         : const Text("login"),
+            ),
+          ],
+        ),
       ),
     ));
   }

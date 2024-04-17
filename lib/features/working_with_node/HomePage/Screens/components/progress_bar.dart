@@ -40,6 +40,7 @@ class TaskProgressIndicatorState extends State<TaskProgressIndicator>
 
   @override
   Widget build(BuildContext context) {
+    final workCompletePercent = widget.completedTasks / widget.totalTasks * 100;
     return Column(
       children: [
         Stack(
@@ -59,13 +60,21 @@ class TaskProgressIndicatorState extends State<TaskProgressIndicator>
                   height: 100,
                   selectedStepSize: 13,
                   roundedCap: (_, __) => true,
+                  child: Center(
+                      child: Text(
+                    "${workCompletePercent.toString()} %",
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600),
+                  )),
                 );
               },
             ),
           ],
         ),
         const SizedBox(
-          height: 10,
+          height: 25,
         )
       ],
     );
@@ -129,7 +138,6 @@ class _TaskProgressIndicatorLinearState
                   selectedColor: const Color.fromARGB(255, 14, 138, 196),
                   unselectedColor: const Color.fromARGB(255, 136, 135, 135),
                   padding: 0,
-                  
                 );
               },
             ),

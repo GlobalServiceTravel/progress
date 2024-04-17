@@ -6,7 +6,7 @@ class TaskGroupContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 95,
+      height: 85,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -22,9 +22,13 @@ class TaskGroupContainer extends StatelessWidget {
               width: 55,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: const Color.fromARGB(255, 241, 187, 221),
+                color: const Color.fromARGB(255, 248, 205, 232),
               ),
-              child: const Icon(Icons.work , color: Color.fromARGB(255, 228, 118, 188), size: 35,),
+              child: const Icon(
+                Icons.work,
+                color: Color.fromARGB(255, 228, 118, 188),
+                size: 35,
+              ),
             ),
           ),
           const Padding(
@@ -36,7 +40,7 @@ class TaskGroupContainer extends StatelessWidget {
                 Text(
                   "office Project",
                   style: TextStyle(
-                    fontSize: 25,
+                    fontSize: 22,
                     fontWeight: FontWeight.w700,
                     color: Color.fromARGB(255, 54, 53, 53),
                   ),
