@@ -1,11 +1,9 @@
 // ignore_for_file: unused_local_variable
 
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:progress/CommonElements/nav_bar.dart';
 import 'package:progress/features/working_with_node/HomePage/Screens/components/ongoing_process_container.dart';
 import 'package:progress/features/working_with_node/HomePage/Screens/components/progress_bar.dart';
 import 'package:progress/features/working_with_node/HomePage/Screens/components/task_group_container.dart';
