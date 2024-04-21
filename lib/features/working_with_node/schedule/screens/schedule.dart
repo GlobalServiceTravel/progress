@@ -64,8 +64,8 @@ class ScheduleRoutine extends StatelessWidget {
               ),
               const Divider(), // Add a divider between DateCounter and ShowWorkLog
               const Expanded(
-                  child:
-                      ShowWorkLog()), // Use Expanded to allow ShowWorkLog to take remaining space
+                child: ShowWorkLog(),
+              ), // Use Expanded to allow ShowWorkLog to take remaining space
             ],
           ),
         ),
@@ -194,11 +194,94 @@ class ShowWorkLog extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.only(left: 15, right: 15.0, bottom: 5),
           child: Container(
-            height: 100,
+            height: 105,
             width: double.infinity,
             decoration: BoxDecoration(
               color: const Color.fromRGBO(255, 255, 255, 0.2),
               borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(top: 12.0, left: 12, bottom: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Austrila form of Swarawan Kumar",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      SizedBox(height: 3),
+                      Text(
+                        "Visa Application",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(height: 3),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.timer,
+                            size: 21,
+                            color: Color.fromARGB(255, 2, 62, 112),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              left: 8.0,
+                            ),
+                            child: Text(
+                              "01:00 AM",
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: Color.fromARGB(255, 2, 62, 112),
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        height: 30,
+                        width: 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: const Color.fromARGB(255, 248, 205, 232),
+                        ),
+                        child: const Icon(
+                          Icons.work,
+                          color: Color.fromARGB(255, 228, 118, 188),
+                          size: 20,
+                        ),
+                      ),
+                      Container(
+                        height: 25,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: const Color.fromARGB(255, 181, 201, 216),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "Done",
+                            style: TextStyle(fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
             ),
           ),
         );

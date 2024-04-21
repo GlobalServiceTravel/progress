@@ -26,9 +26,10 @@ class OnGoingProcessContainer extends StatelessWidget {
                 Text(
                   "Project Title",
                   style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color: Color.fromARGB(255, 131, 130, 130)),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: Color.fromARGB(255, 131, 130, 130),
+                  ),
                 ),
               ],
             ),
@@ -39,7 +40,7 @@ class OnGoingProcessContainer extends StatelessWidget {
               overflow: TextOverflow.clip,
               "Austrila form of Swarawan kumar",
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 22,
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -49,7 +50,7 @@ class OnGoingProcessContainer extends StatelessWidget {
             child: Text("9 Days Remaining ......"),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 15.0, right: 25 , top:  20),
+            padding: EdgeInsets.only(left: 15.0, right: 25, top: 20),
             child: TaskProgressIndicatorLinear(
               completedTasks: 20,
               totalTasks: 22,

@@ -1,5 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:progress/features/working_with_node/AddTask/screens/add_task.dart';
 import 'package:progress/features/working_with_node/HomePage/Screens/home_page.dart';
 import 'package:progress/features/working_with_node/schedule/screens/schedule.dart';
 
@@ -35,7 +36,10 @@ class _ButtonNavigationBarState extends State<ButtonNavigationBar> {
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
         child: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const AddTask()));
+          },
           icon: const Icon(
             Icons.add,
             size: 35,

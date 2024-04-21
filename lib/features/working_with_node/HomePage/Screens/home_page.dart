@@ -161,7 +161,7 @@ class HomePage extends ConsumerWidget {
                         const Text(
                           "In Progress",
                           style: TextStyle(
-                            fontSize: 26,
+                            fontSize: 22,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -170,8 +170,8 @@ class HomePage extends ConsumerWidget {
                             Padding(
                               padding: const EdgeInsets.only(left: 2.0),
                               child: Container(
-                                height: 23,
-                                width: 23,
+                                height: 15,
+                                width: 15,
                                 decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: Color.fromARGB(255, 173, 207, 235)),
@@ -179,13 +179,13 @@ class HomePage extends ConsumerWidget {
                                     child: Text(
                                   "${2}",
                                   style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.w700),
                                 )),
                               ),
                             ),
                             const SizedBox(
-                              height: 3,
+                              height: 7,
                             )
                           ],
                         ),
@@ -217,7 +217,7 @@ class HomePage extends ConsumerWidget {
                     child: Text(
                       "Task Group",
                       style: TextStyle(
-                        fontSize: 26,
+                        fontSize: 22,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
